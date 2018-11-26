@@ -23,26 +23,24 @@ public class Haptic extends CordovaPlugin {
                     if (v == null) return false;
                     long durations[] = {0, 20};
 
-                    switch (type) {
-                    case "impactLight":
-                        durations = new long[]{0, 20};
-                        break;
-                    case "impactMedium":
-                        durations = new long[]{0, 40};
-                        break;
-                    case "impactHeavy":
-                    durations = new long[]{0, 60};
-                        break;
-                    case "notificationSuccess":
-                        durations = new long[]{0, 40 ,60, 20};
-                        break;
-                    case "notificationWarning":
-                        durations = new long[]{0, 20, 60, 40};
-                        break;
-                    case "notificationError":
-                        durations = new long[]{0, 20, 40, 30, 40, 40};
-                        break;
-                    }
+                    if (type.equals("impactLight")){
+                       durations = new long[]{0, 20};
+                       }
+                       else if (type.equals("impactMedium")){
+                           durations = new long[]{0, 40};
+                       }
+                       else if (type.equals("impactHeavy")){
+                           durations = new long[]{0, 60};
+                       }
+                       else if (type.equals("notificationSuccess")){
+                           durations = new long[]{0, 40 ,60, 20};
+                       }
+                       else if (type.equals("notificationWarning")){
+                           durations = new long[]{0, 20, 60, 40};
+                       }
+                       else if (type.equals("notificationError")){
+                           durations = new long[]{0, 20, 40, 30, 40, 40};
+                       }
 
                     v.vibrate(durations, -1);
         }
